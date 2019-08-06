@@ -7,7 +7,7 @@
         href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
   <style>
 
-    img {
+    img {s
       max-width: 70%;
     }
 
@@ -17,6 +17,11 @@
     }
 
   </style>
+<script
+src="http://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -74,7 +79,40 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
-  // Add your code here!
+  //1
+$(function() {
+    console.log("Let's get ready to party with jQuery!");
+//2
+$("article img").addClass("image-center");
+//3
+$("article p:last-of-type").remove();
+//4
+$(".text-center").css("font-size",randomSize);
+function randomSize() {
+ return (Math.floor(Math.random() * 100) +1)
+}
+//5
+$("ol").append("<li> What ever we say <li>");
+//6
+$("ol").empty().append("<p>We apologize for any lists that may have offended you.<p>");
+//7
+$("input").on("change", changeColor);
+
+function changeColor() {
+  console.log("hello?");
+  let colors = $("input").map(function() { return $(this).val(); });
+  console.log(`rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`);
+  $('body').css('background-color', `rgb(${colors[0]}, ${colors[1]}, ${colors[2]})`);
+
+}
+//8
+console.log($("img"));
+$("img").on("click", function() {$(this).remove()});
+
+
+
+
+});
 </script>
 </body>
 

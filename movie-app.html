@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="movie-form">
+    <form class="realFormID" >
+    <h1>Rate a Movie!</h1>
+    <label for="movie-title">Movie Title</label>
+    <input class="form-control" type="text" name="movie-title" value="">
+    <label for="rating">Rating:</label>
+    <input class="form-control" type="text" name="rating" value="0-10">
+  </form>
+  </div>
+  <button>Submit</button>
+
+
+  <div class="movie-list">
+    <h1 class="ratings">Movie Ratings</h1>
+
+
+  </div>
+
+
+
+  <script>
+    $(function () {
+      //1
+      $("button").click(function () {
+        let movieInputs = $("input").map(function() { return $(this).val(); });
+        $(".movie-list").append(`<ul class="movie-text">"${movieInputs[0]}" is rated ${movieInputs[1]} stars!<ul>`);
+        $(".movie-text:last-of-type").append("<button class='drop-it'>please delete me</button>")
+        $(".realFormID").trigger("reset");
+      });
+
+
+
+      $(".movie-list").on("click",".drop-it", function(){
+        // $(this).remove();
+        $(this).parent().remove();
+        // $(this).child().remove();
+        // (evt.target).parent().empty();
+        // .remove();
+      });
+
+
+
+
+
+
+
+
+
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>
